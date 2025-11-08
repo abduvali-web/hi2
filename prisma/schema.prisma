@@ -1,0 +1,170 @@
+// Delivery Management System Schema
+// Complex system with 3-tier admin hierarchy and order management
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Users with different roles
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  password     String
+  name         String
+  role         AdminRole @default(SUPER_ADMIN)
+  isActive     Boolean  @default(true)
+  createdBy    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  // Relations
+  createdAdmins Admin[] @relation("AdminHierarchy")
+  creator       Admin?  @relation("AdminHierarchy", fields: [createdBy], references: [id])
+  orders        Order[] @relation("OrderAdmin")
+  courierOrders Order[] @relation("OrderCourier")
+  actionLogs    ActionLog[]
+  interfaceConfig InterfaceConfig?
+  
+  @@index([email])
+  @@index([role])
+  @@index([isActive])
+  @@index([createdBy])
+  @@map("admins")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  MIDDLE_ADMIN
+  LOW_ADMIN
+  COURIER
+}
+
+// Customers
+model Customer {
+  id           String   @id @default(cuid())
+  name         String
+  phone        String   @unique
+  address      String
+  preferences  String?  // JSON string for special preferences
+  orderPattern String?  // daily, every_other_day_even, every_other_day_odd
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  orders       Order[]
+  
+  @@index([phone])
+  @@index([isActive])
+  @@index([createdAt])
+  @@map("customers")
+}
+
+// Orders
+model Order {
+  id              String     @id @default(cuid())
+  orderNumber     Int        @unique
+  customerId      String
+  adminId         String
+  courierId       String?
+  deliveryAddress String
+  deliveryDate    DateTime?  // Date of delivery
+  deliveryTime    String     // morning, afternoon, evening
+  quantity        Int        @default(1)
+  calories        Int
+  specialFeatures String?    // JSON string
+  paymentStatus   PaymentStatus
+  paymentMethod   PaymentMethod
+  orderStatus     OrderStatus @default(PENDING)
+  isPrepaid       Boolean    @default(false)
+  deliveredAt     DateTime?  // When the order was delivered
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  
+  // Relations
+  customer  Customer @relation(fields: [customerId], references: [id])
+  admin     Admin    @relation("OrderAdmin", fields: [adminId], references: [id])
+  courier   Admin?   @relation("OrderCourier", fields: [courierId], references: [id])
+  
+  @@index([customerId])
+  @@index([adminId])
+  @@index([courierId])
+  @@index([orderStatus])
+  @@index([paymentStatus])
+  @@index([deliveryDate])
+  @@index([deliveryDate, orderStatus])
+  @@index([createdAt])
+  @@map("orders")
+}
+
+enum PaymentStatus {
+  PAID
+  UNPAID
+}
+
+enum PaymentMethod {
+  CARD
+  CASH
+}
+
+enum OrderStatus {
+  PENDING
+  IN_DELIVERY
+  PAUSED
+  DELIVERED
+  FAILED
+}
+
+// Action logs for history tracking
+model ActionLog {
+  id          String   @id @default(cuid())
+  adminId     String
+  action      String
+  entityType  String   // order, admin, customer, etc.
+  entityId    String
+  oldValues   String?  // JSON string
+  newValues   String?  // JSON string
+  description String?
+  createdAt   DateTime @default(now())
+  
+  // Relations
+  admin Admin @relation(fields: [adminId], references: [id])
+  
+  @@index([adminId])
+  @@index([entityType])
+  @@index([entityId])
+  @@index([createdAt])
+  @@index([adminId, createdAt])
+  @@map("action_logs")
+}
+
+ // Interface configuration for each admin
+model InterfaceConfig {
+  id           String @id @default(cuid())
+  adminId      String @unique
+  buttonConfig String // JSON string for button positions and visibility
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  // Relations
+  admin Admin @relation(fields: [adminId], references: [id])
+  
+  @@map("interface_configs")
+}
+
+// Todo #4: Idempotent analytics dispatch tracking
+// NOTE: Run migration later with:
+//   npx prisma migrate dev -n add_event_dispatch
+model EventDispatch {
+  id        String   @id @default(cuid())
+  orderId   String
+  eventName String
+  createdAt DateTime @default(now())
+
+  @@unique([orderId, eventName])
+  @@map("event_dispatches")
+}

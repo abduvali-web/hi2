@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "siteName": "Tez va ishonchli yetkazib berish",
+    "tagline": "Buyurtmalarni avtomatlashtiring — mijozlar tezroq toʻlaydi"
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "pricing": "Narxlar",
+    "contact": "Aloqa"
+  },
+  "hero": {
+    "title": "Yetkazib berishni avtomatlashtiring va ko'proq to'lovlar oling",
+    "subtitle": "Tez buyurtma, ishonchli yetkazib berish, mahalliy qo'llab-quvvatlash",
+    "cta": "Buyurtmani boshlash"
+  },
+  "trust": {
+    "title": "Bizga ishonishadi",
+    "items": ["Tez yetkazib berish", "Shaffof narxlar", "Mahalliy yordam"]
+  },
+  "steps": {
+    "title": "Qanday ishlaydi",
+    "items": ["Buyurtma yuboring", "Kuryer tayinlanadi", "To'lov va yetkazib berish"]
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan"
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xatolik",
+    "success": "Muvaffaqiyatli",
+    "cancel": "Bekor qilish",
+    "save": "Saqlash",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "close": "Yopish",
+    "confirm": "Tasdiqlash",
+    "back": "Orqaga",
+    "next": "Keyingi",
+    "search": "Qidirish",
+    "filter": "Filtr",
+    "refresh": "Yangilash",
+    "logout": "Chiqish",
+    "profile": "Profil",
+    "settings": "Sozlamalar",
+    "required": "Majburiy maydon",
+    "optional": "Ixtiyoriy",
+    "selectOption": "Variantni tanlang",
+    "noData": "Ma'lumot yo'q",
+    "emptyState": "Hech narsa topilmadi"
+  },
+  "accessibility": {
+    "skipToContent": "Asosiy tarkibga o'tish",
+    "mainNavigation": "Asosiy navigatsiya",
+    "languageSwitch": "Tilni almashtirish",
+    "closeDialog": "Dialogni yopish",
+    "openMenu": "Menyuni ochish",
+    "closeMenu": "Menyuni yopish"
+  },
+  "forms": {
+    "emailLabel": "Elektron pochta",
+    "emailPlaceholder": "sizning@email.com",
+    "passwordLabel": "Parol",
+    "passwordPlaceholder": "Parolingizni kiriting",
+    "nameLabel": "Ism",
+    "namePlaceholder": "To'liq ism",
+    "phoneLabel": "Telefon",
+    "phonePlaceholder": "+998 XX XXX XX XX",
+    "addressLabel": "Manzil",
+    "addressPlaceholder": "Yetkazib berish manzili",
+    "validation": {
+      "required": "Bu maydon to'ldirilishi shart",
+      "invalidEmail": "Noto'g'ri elektron pochta manzili",
+      "minLength": "Kamida {min} ta belgi bo'lishi kerak",
+      "maxLength": "Ko'pi bilan {max} ta belgi bo'lishi kerak",
+      "passwordMismatch": "Parollar mos kelmaydi"
+    }
+  },
+  "toast": {
+    "success": "Muvaffaqiyat",
+    "error": "Xatolik",
+    "warning": "Ogohlantirish",
+    "info": "Ma'lumot"
+  }
+}

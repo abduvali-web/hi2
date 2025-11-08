@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "siteName": "Быстрая и надёжная доставка",
+    "tagline": "Автоматизируйте заказы — клиенты платят быстрее"
+  },
+  "nav": {
+    "home": "Главная",
+    "pricing": "Цены",
+    "contact": "Контакты"
+  },
+  "hero": {
+    "title": "Автоматизируйте доставку и получайте больше оплат",
+    "subtitle": "Быстрый заказ, надёжная доставка, локальная поддержка",
+    "cta": "Начать заказ"
+  },
+  "trust": {
+    "title": "Нам доверяют",
+    "items": ["Быстрая доставка", "Прозрачные цены", "Локальная поддержка"]
+  },
+  "steps": {
+    "title": "Как это работает",
+    "items": ["Отправьте заказ", "Назначим курьера", "Оплата и доставка"]
+  },
+  "footer": {
+    "rights": "Все права защищены"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "close": "Закрыть",
+    "confirm": "Подтвердить",
+    "back": "Назад",
+    "next": "Далее",
+    "search": "Поиск",
+    "filter": "Фильтр",
+    "refresh": "Обновить",
+    "logout": "Выйти",
+    "profile": "Профиль",
+    "settings": "Настройки",
+    "required": "Обязательное поле",
+    "optional": "Необязательное",
+    "selectOption": "Выберите вариант",
+    "noData": "Нет данных",
+    "emptyState": "Ничего не найдено"
+  },
+  "accessibility": {
+    "skipToContent": "Перейти к основному содержимому",
+    "mainNavigation": "Главная навигация",
+    "languageSwitch": "Переключить язык",
+    "closeDialog": "Закрыть диалог",
+    "openMenu": "Открыть меню",
+    "closeMenu": "Закрыть меню"
+  },
+  "forms": {
+    "emailLabel": "Электронная почта",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "Пароль",
+    "passwordPlaceholder": "Введите пароль",
+    "nameLabel": "Имя",
+    "namePlaceholder": "Полное имя",
+    "phoneLabel": "Телефон",
+    "phonePlaceholder": "+998 XX XXX XX XX",
+    "addressLabel": "Адрес",
+    "addressPlaceholder": "Адрес доставки",
+    "validation": {
+      "required": "Это поле обязательно для заполнения",
+      "invalidEmail": "Неверный адрес электронной почты",
+      "minLength": "Минимум {min} символов",
+      "maxLength": "Максимум {max} символов",
+      "passwordMismatch": "Пароли не совпадают"
+    }
+  },
+  "toast": {
+    "success": "Успех",
+    "error": "Ошибка",
+    "warning": "Предупреждение",
+    "info": "Информация"
+  }
+}
