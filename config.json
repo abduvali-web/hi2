@@ -1,0 +1,16 @@
+{
+  "port": 3006,
+  "host": "localhost",
+  "outputTransport": "streamableHttp",
+  "mcpServers": {
+    "local_filesystem": {
+      "name": "local_filesystem",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/abduvali.rufatov/Downloads/hi"
+      ]
+    }
+  }
+}
